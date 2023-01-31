@@ -55,7 +55,7 @@ Include a _very brief_ summary of what you learnt in this class here.
 
 Today, I learnt the following concepts in class:
 
-1. Item 1
+1. Item 1 change
 1. Item 2
 1. Item 3
 :::
