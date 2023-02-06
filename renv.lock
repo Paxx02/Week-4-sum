@@ -9,6 +9,28 @@
     ]
   },
   "Packages": {
+    "evaluate": {
+      "Package": "evaluate",
+      "Version": "0.20",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods"
+      ],
+      "Hash": "4b68aa51edd89a0e044a66e75ae3cc6c"
+    },
+    "highr": {
+      "Package": "highr",
+      "Version": "0.10",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "xfun"
+      ],
+      "Hash": "06230136b2d2b9ba5805e1963fa6e890"
+    },
     "jsonlite": {
       "Package": "jsonlite",
       "Version": "1.8.4",
@@ -19,6 +41,22 @@
       ],
       "Hash": "a4269a09a9b865579b2635c77e572374"
     },
+    "knitr": {
+      "Package": "knitr",
+      "Version": "1.42",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "evaluate",
+        "highr",
+        "methods",
+        "tools",
+        "xfun",
+        "yaml"
+      ],
+      "Hash": "8329a9bcc82943c8069104d4be3ee22d"
+    },
     "renv": {
       "Package": "renv",
       "Version": "0.16.0-53",
@@ -28,7 +66,30 @@
       "RemoteUsername": "rstudio",
       "RemoteRepo": "renv",
       "RemoteRef": "0.16.0-53",
-      "RemoteSha": "8d5015741717b6cfb8e4ea88b4e57f497cd78420"
+      "RemoteSha": "8d5015741717b6cfb8e4ea88b4e57f497cd78420",
+      "Requirements": [
+        "utils"
+      ],
+      "Hash": "8a9ff780a57049313cfc4e75f47a3f04"
+    },
+    "xfun": {
+      "Package": "xfun",
+      "Version": "0.36",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "stats",
+        "tools"
+      ],
+      "Hash": "f5baec54606751aa53ac9c0e05848ed6"
+    },
+    "yaml": {
+      "Package": "yaml",
+      "Version": "2.3.7",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [],
+      "Hash": "0d0056cc5383fbc240ccd0cb584bf436"
     }
   }
 }

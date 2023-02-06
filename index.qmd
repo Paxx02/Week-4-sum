@@ -1,6 +1,6 @@
 ---
-title: "Weekly Summary Template"
-author: "Author Name"
+title: "Week 4 Sum"
+author: "Conner Langnas"
 title-block-banner: true
 title-block-style: default
 toc: true
@@ -10,27 +10,48 @@ format: html
 
 ---
 
-## Tuesday, Jan 17
+## Tuesday, Jan 31
 
 ::: {.callout-important}
 ## TIL
 
 Include a _very brief_ summary of what you learnt in this class here. 
 
-Today, I learnt the following concepts in class:
+regression and linear regression
 
-1. Item 1
-1. Item 2
-1. Item 3
-:::
+looking at scatter plots
+using this data set 
+https://online.stat.psu.edu/stat462/sites/onlinecourses.science.psu.edu.stat462/files/data/poverty/index.txt
 
-Provide more concrete details here. You can also use footenotes[^footnote] if you like
+#```{r}
+plt <- function(){
+  plot(
+  x,
+  y,
+  pch=20,
+  xlab = "Pov %"
+  ylab = "Birth rate (15-17)"
+)
+}
+plt()
 
-```{R results='hide'}
-#| output: false
-library(dplyr)
-library(purrr)
+
 ```
+#```{r}
+#1 echo if true
+b0<- c(-2,0,2)
+b1 <- c(0,1,2)
+
+
+par(mfrow=c(3, 3))
+
+for(B0 in b0){
+  for(B1 in b1){
+    plt()
+    curve( B0 + B1 * x, 0, 30, add=T, col="red")
+    title(main = paste("b0 = "
+```
+goal is get a straight line that fits most of the data
 
 
 For example: 
