@@ -65,7 +65,7 @@ map(1:9, function(i)rnorm(1000) %>% hist(., main=i, col=i))
 
 
 
-## Thursday, Jan 19
+## Thursday, Feb 2
 
 
 
