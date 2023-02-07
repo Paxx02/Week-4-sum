@@ -36,11 +36,39 @@ library(htmlwidgets)
 library(tidyverse)
 ```
 
+
+## Statiscal Learning Diffrent types
+
+* Supervised learning
+  * Regression
+  * Classification
+* Unsupervised Learning
+* Semi-Supervised Learning
+* Renforcement learning
+
+
+
+
+
+
+
+
+
+
+
 looking at scatter plots
 using this data set 
 https://online.stat.psu.edu/stat462/sites/onlinecourses.science.psu.edu.stat462/files/data/poverty/index.txt
 
-#```{r}
+```{r}
+url <- "https://online.stat.psu.edu/stat462/sites/onlinecourses.science.psu.edu.stat462/files/data/poverty/index.txt"
+df <- read_tsv(url)
+df %>% head(., 20) %>% kable
+```
+
+
+
+```{r}
 plt <- function(){
   plot(
   x,
@@ -71,14 +99,7 @@ for(B0 in b0){
 goal is get a straight line that fits most of the data
 
 
-For example: 
-in class we learnt we learnt about the `map` function from the `purrr` package. 
 
-
-#```{R results='hide', fig.width=7, fig.height=7}
-par(mfrow=c(3, 3), mar=c(3.5, 3.5, 2, 1), mgp=c(2.4, 0.8, 0))
-map(1:9, function(i)rnorm(1000) %>% hist(., main=i, col=i))
-```
 
 
 
