@@ -238,19 +238,19 @@ Call:
 lm(formula = y1 ~ x)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--2.20954 -0.54068 -0.08579  0.72253  2.00479 
+    Min      1Q  Median      3Q     Max 
+-2.0439 -0.6839  0.0187  0.6391  2.3167 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  0.93449    0.18502   5.051 2.04e-06 ***
-x            3.02844    0.06393  47.371  &lt; 2e-16 ***
+(Intercept)   0.5200     0.1812    2.87  0.00502 ** 
+x             3.1442     0.0626   50.23  &lt; 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.932 on 98 degrees of freedom
-Multiple R-squared:  0.9582,    Adjusted R-squared:  0.9577 
-F-statistic:  2244 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 0.9127 on 98 degrees of freedom
+Multiple R-squared:  0.9626,    Adjusted R-squared:  0.9622 
+F-statistic:  2523 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -262,18 +262,18 @@ lm(formula = y2 ~ x)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--8.9801 -1.9681  0.0388  2.1394  7.9963 
+-7.0917 -2.0186 -0.1407  1.9004  8.9746 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   1.2278     0.6496    1.89   0.0617 .  
-x             2.7106     0.2245   12.07   &lt;2e-16 ***
+(Intercept)   0.3853     0.5936   0.649    0.518    
+x             3.1483     0.2051  15.349   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 3.273 on 98 degrees of freedom
-Multiple R-squared:  0.5981,    Adjusted R-squared:  0.594 
-F-statistic: 145.8 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 2.99 on 98 degrees of freedom
+Multiple R-squared:  0.7062,    Adjusted R-squared:  0.7032 
+F-statistic: 235.6 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>now to predict models</p>
@@ -284,7 +284,7 @@ F-statistic: 145.8 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>#<code>{r} new_x &lt;- data.frame(x = c(21)) new_y &lt;- predict(model, new_x) new_y</code></p>
 <p>#<code>{r} plt() abline(v=21, col="green") lines(x, fitted(lm(y~x)), col="red") points(new_x, new_y, col="purple")</code></p>
 <p>We can make predictions not just for a single observation, but for a whole collection of observations.</p>
-<p>#q()<code>{r} new_x &lt;- data.frame(x = c(1:21)) new_y &lt;- predict(model, new_x)</code></p>
+<p>#<code>{r} new_x &lt;- data.frame(x = c(1:21)) new_y &lt;- predict(model, new_x)</code></p>
 <p>This is what the plot looks like:</p>
 <p>#<code>{r} plt() for(a in new_x){abline(v=a, col="green")} lines(x, fitted(lm(y~x)), col="red") points(a, new_y, col="purple")</code></p>
 </section>
