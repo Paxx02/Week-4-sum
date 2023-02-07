@@ -123,5 +123,21 @@ title(main = paste('b0, b1, ss_residuals = ', b0, b1, ss_resids, sep=','))
 Today, we learned 
 
 1. Linear Regression
-1. 
+1. Multiple Regression
+
+
+In our case we want to model $y$ as a function of $x$. In 'R' the formula for this looks like:
+
+```{r}
+typeof(formula(y ~ x))
+```
+Linear regression model in `R` is called using the **L**inear **M**odel, i.e., 'lm()'
+
+```{r}
+model <- lm(y ~ x)
+```
+
+```{r}
+summary(model)
+```
 
