@@ -30,7 +30,7 @@ Today we learned about
 #| output: false
 library(ISLR2)
 library(dplyr)
-library(cowplot)
+#library(cowplot)
 library(kableExtra)
 library(htmlwidgets)
 library(tidyverse)
@@ -45,13 +45,6 @@ library(tidyverse)
 * Unsupervised Learning
 * Semi-Supervised Learning
 * Renforcement learning
-
-
-
-
-
-
-
 
 
 
@@ -86,21 +79,39 @@ plt()
 
 
 ```
-#```{r}
-#1 echo if true
-b0<- c(-2,0,2)
-b1 <- c(0,1,2)
-
-
-par(mfrow=c(3, 3))
-
+```{r}
+b0 <- 1
+b1 <- 2
+plt()
+curve(b0 + b1 *x, 0, 30, add=T, col='firebrick')
+```
+```{r}
+b0 <- c(-2, 0, 2)
+b1 <- c(0, 1, 2)
+par(mfrow=c(3,3))
 for(B0 in b0){
   for(B1 in b1){
     plt()
-    curve( B0 + B1 * x, 0, 30, add=T, col="red")
-    title(main = paste("b0 = "
+    curve(B0 + B1 *x, 0, 30, add=T, col='firebrick')
+    title(main = paste('b0 = ', B0, ' and b1 = ', B1))
+  }
+}
 ```
 goal is get a straight line that fits most of the data
+
+
+```{r, fig.height=9, fig.width=12}
+b0 <- 10
+b1 <- 1.1
+yhat <- b0 + b1 * x
+plt()
+curve(b0 + b1 * x, 0, 30, add=T, col='firebrick')
+title(main = paste('b0 = ', b0, ' and b1 = ', b1))
+segments(x, y, x, yhat)
+resids <- abs(y - yhat)^2
+ss_resids <- sum(resids)
+title(main = paste('b0, b1, ss_residuals = ', b0, b1, ss_resids, sep=','))
+```
 
 
 
@@ -109,31 +120,8 @@ goal is get a straight line that fits most of the data
 
 ## Thursday, Feb 2
 
+Today, we learned 
 
+1. Linear Regression
+1. 
 
-::: {.callout-important}
-## TIL
-
-Include a _very brief_ summary of what you learnt in this class here. 
-
-Today, I learnt the following concepts in class:
-
-1. Item 1 change
-1. Item 2
-1. Item 3
-:::
-
-Provide more concrete details here, e.g., 
-
-In class we learnt how to use the `map` function to create multiple regression diagnostic plots
-
-#```{R results='hide', fig.height=4}
-par(mfcol=c(2, 3), mar=c(3.5, 3.5, 2, 1), mgp=c(2.4, 0.8, 0))
-mtcars %>%
-  split(.$cyl) %>%
-  map(~ lm(mpg ~ wt, data = .x)) %>%
-  map(function(x)plot(x, which=c(1, 2)))
-```
-
-
-[^footnote]: You can include some footnotes here
