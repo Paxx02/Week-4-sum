@@ -26,7 +26,7 @@ Today we learned about
 3. Multiple regression
 
 
-```{R results = 'hide'}
+#```{R results = 'hide'}
 #| output: false
 library(ISLR2)
 library(dplyr)
@@ -37,7 +37,7 @@ library(tidyverse)
 ```
 
 
-## Statiscal Learning Diffrent types
+# Statiscal Learning Diffrent types
 
 * Supervised learning
   * Regression
@@ -53,19 +53,19 @@ looking at scatter plots
 using this data set 
 https://online.stat.psu.edu/stat462/sites/onlinecourses.science.psu.edu.stat462/files/data/poverty/index.txt
 
-```{r}
+#```{r}
 url <- "https://online.stat.psu.edu/stat462/sites/onlinecourses.science.psu.edu.stat462/files/data/poverty/index.txt"
 df <- read_tsv(url)
 df %>% head(., 20) %>% kable
 ```
 
-```{r}
+#```{r}
 colnames(df) <- tolower(colnames(df))
 x <- df$povpct
 y <- df$brth15to17
 ```
 
-```{r}
+#```{r}
 plt <- function(){
   plot(
   x,
@@ -79,13 +79,13 @@ plt()
 
 
 ```
-```{r}
+#```{r}
 b0 <- 1
 b1 <- 2
 plt()
 curve(b0 + b1 *x, 0, 30, add=T, col='firebrick')
 ```
-```{r}
+#```{r}
 b0 <- c(-2, 0, 2)
 b1 <- c(0, 1, 2)
 par(mfrow=c(3,3))
@@ -100,7 +100,7 @@ for(B0 in b0){
 goal is get a straight line that fits most of the data
 
 
-```{r, fig.height=9, fig.width=12}
+#```{r, fig.height=9, fig.width=12}
 b0 <- 10
 b1 <- 1.1
 yhat <- b0 + b1 * x
@@ -128,16 +128,101 @@ Today, we learned
 
 In our case we want to model $y$ as a function of $x$. In 'R' the formula for this looks like:
 
-```{r}
+#```{r}
 typeof(formula(y ~ x))
 ```
 Linear regression model in `R` is called using the **L**inear **M**odel, i.e., 'lm()'
 
-```{r}
+#```{r}
 model <- lm(y ~ x)
 ```
 
-```{r}
+#```{r}
 summary(model)
 ```
 
+```{r}
+x <- seq(0, 5, length=100)
+b0 <- 1
+b1 <- 3
+y1 <- b0 + b1 * x + rnorm(100)
+y2 <- b0 + b1 * x + rnorm(100) * 3
+par(mfrow=c(1,2))
+plot(x, y1)
+plot(x, y2)
+```
+
+```{r}
+model1 <- lm(y1 ~ x)
+model2 <- lm(y2 ~ x)
+par(mfrow=c(1,2))
+plot(x, y1)
+curve(
+  coef(model1)[1] + coef(model1)[2] * x,
+  add=T, col="red"
+)
+plot(x, y2)
+curve(
+  coef(model2)[1] + coef(model2)[2] * x,
+  add=T, col="red"
+)
+```
+
+
+```{r}
+summary(model1)
+```
+
+
+```{r}
+summary(model2)
+```
+
+
+now to predict models
+
+
+#```{r}
+x <- df$povpct
+y <- df$brth15to17
+plt()
+```
+
+Suppose we have a "new" state formed whose 'povpct' value is $22$.
+
+#```{r}
+plt()
+abline(v=21, col="green")
+lines(x, fitted(lm(y~x)), col="red")
+```
+
+**Q.** What is the best guess for this prediction going to be? We could consider the graph and our best prediction is going to be the intersection. In $R$, we can use the `predict()` function to do this:
+
+#```{r}
+new_x <- data.frame(x = c(21))
+new_y <- predict(model, new_x)
+new_y
+```
+
+#```{r}
+plt()
+abline(v=21, col="green")
+lines(x, fitted(lm(y~x)), col="red")
+points(new_x, new_y, col="purple")
+```
+
+We can make predictions not just for a single observation, but for a whole collection of observations.
+
+#```{r}
+new_x <- data.frame(x = c(1:21))
+new_y <- predict(model, new_x)
+```
+
+This is what the plot looks like:
+
+#```{r}
+plt()
+for(a in new_x){abline(v=a, col="green")}
+lines(x, fitted(lm(y~x)), col="red")
+points(a, new_y, col="purple")
+```

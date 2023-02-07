@@ -21,6 +21,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -35,6 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -69,7 +133,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#tuesday-jan-31" id="toc-tuesday-jan-31" class="nav-link active" data-scroll-target="#tuesday-jan-31">Tuesday, Jan 31</a></li>
+  <li><a href="#statiscal-learning-diffrent-types" id="toc-statiscal-learning-diffrent-types" class="nav-link" data-scroll-target="#statiscal-learning-diffrent-types">Statiscal Learning Diffrent types</a>
+  <ul class="collapse">
   <li><a href="#thursday-feb-2" id="toc-thursday-feb-2" class="nav-link" data-scroll-target="#thursday-feb-2">Thursday, Feb 2</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -96,49 +163,131 @@ ul.task-list li input[type="checkbox"] {
 <li>Intro to statisical learning</li>
 <li>Multiple regression</li>
 </ol>
+<p>#<code>{R results = 'hide'} #| output: false library(ISLR2) library(dplyr) #library(cowplot) library(kableExtra) library(htmlwidgets) library(tidyverse)</code></p>
+</section>
+<section id="statiscal-learning-diffrent-types" class="level1">
+<h1>Statiscal Learning Diffrent types</h1>
+<ul>
+<li>Supervised learning
+<ul>
+<li>Regression</li>
+<li>Classification</li>
+</ul></li>
+<li>Unsupervised Learning</li>
+<li>Semi-Supervised Learning</li>
+<li>Renforcement learning</li>
+</ul>
 <p>looking at scatter plots using this data set https://online.stat.psu.edu/stat462/sites/onlinecourses.science.psu.edu.stat462/files/data/poverty/index.txt</p>
+<p>#<code>{r} url &lt;- "https://online.stat.psu.edu/stat462/sites/onlinecourses.science.psu.edu.stat462/files/data/poverty/index.txt" df &lt;- read_tsv(url) df %&gt;% head(., 20) %&gt;% kable</code></p>
+<p>#<code>{r} colnames(df) &lt;- tolower(colnames(df)) x &lt;- df$povpct y &lt;- df$brth15to17</code></p>
 <p>#```{r} plt &lt;- function(){ plot( x, y, pch=20, xlab = “Pov %” ylab = “Birth rate (15-17)” ) } plt()</p>
 <pre><code>#```{r}
-#1 echo if true
-b0&lt;- c(-2,0,2)
-b1 &lt;- c(0,1,2)
-
-
-par(mfrow=c(3, 3))
-
-for(B0 in b0){
-  for(B1 in b1){
-    plt()
-    curve( B0 + B1 * x, 0, 30, add=T, col="red")
-    title(main = paste("b0 = "</code></pre>
-<p>goal is get a straight line that fits most of the data</p>
-<p>For example: in class we learnt we learnt about the <code>map</code> function from the <code>purrr</code> package.</p>
-<p>#<code>{R results='hide', fig.width=7, fig.height=7} par(mfrow=c(3, 3), mar=c(3.5, 3.5, 2, 1), mgp=c(2.4, 0.8, 0)) map(1:9, function(i)rnorm(1000) %&gt;% hist(., main=i, col=i))</code></p>
-</section>
+b0 &lt;- 1
+b1 &lt;- 2
+plt()
+curve(b0 + b1 *x, 0, 30, add=T, col='firebrick')</code></pre>
+<p>#<code>{r} b0 &lt;- c(-2, 0, 2) b1 &lt;- c(0, 1, 2) par(mfrow=c(3,3)) for(B0 in b0){   for(B1 in b1){     plt()     curve(B0 + B1 *x, 0, 30, add=T, col='firebrick')     title(main = paste('b0 = ', B0, ' and b1 = ', B1))   } }</code> goal is get a straight line that fits most of the data</p>
+<p>#<code>{r, fig.height=9, fig.width=12} b0 &lt;- 10 b1 &lt;- 1.1 yhat &lt;- b0 + b1 * x plt() curve(b0 + b1 * x, 0, 30, add=T, col='firebrick') title(main = paste('b0 = ', b0, ' and b1 = ', b1)) segments(x, y, x, yhat) resids &lt;- abs(y - yhat)^2 ss_resids &lt;- sum(resids) title(main = paste('b0, b1, ss_residuals = ', b0, b1, ss_resids, sep=','))</code></p>
 <section id="thursday-feb-2" class="level2">
 <h2 class="anchored" data-anchor-id="thursday-feb-2">Thursday, Feb 2</h2>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-TIL
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Include a <em>very brief</em> summary of what you learnt in this class here.</p>
-<p>Today, I learnt the following concepts in class:</p>
+<p>Today, we learned</p>
 <ol type="1">
-<li>Item 1 change</li>
-<li>Item 2</li>
-<li>Item 3</li>
+<li>Linear Regression</li>
+<li>Multiple Regression</li>
 </ol>
+<p>In our case we want to model <span class="math inline">\(y\)</span> as a function of <span class="math inline">\(x\)</span>. In ‘R’ the formula for this looks like:</p>
+<p>#<code>{r} typeof(formula(y ~ x))</code> Linear regression model in <code>R</code> is called using the <strong>L</strong>inear <strong>M</strong>odel, i.e., ‘lm()’</p>
+<p>#<code>{r} model &lt;- lm(y ~ x)</code></p>
+<p>#<code>{r} summary(model)</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="at">length=</span><span class="dv">100</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b0 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>b1 <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> b0 <span class="sc">+</span> b1 <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> b0 <span class="sc">+</span> b1 <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y1)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Provide more concrete details here, e.g.,</p>
-<p>In class we learnt how to use the <code>map</code> function to create multiple regression diagnostic plots</p>
-<p>#<code>{R results='hide', fig.height=4} par(mfcol=c(2, 3), mar=c(3.5, 3.5, 2, 1), mgp=c(2.4, 0.8, 0)) mtcars %&gt;%   split(.$cyl) %&gt;%   map(~ lm(mpg ~ wt, data = .x)) %&gt;%   map(function(x)plot(x, which=c(1, 2)))</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y1 <span class="sc">~</span> x)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y2 <span class="sc">~</span> x)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y1)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coef</span>(model1)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">coef</span>(model1)[<span class="dv">2</span>] <span class="sc">*</span> x,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">add=</span>T, <span class="at">col=</span><span class="st">"red"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y2)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coef</span>(model2)[<span class="dv">1</span>] <span class="sc">+</span> <span class="fu">coef</span>(model2)[<span class="dv">2</span>] <span class="sc">*</span> x,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">add=</span>T, <span class="at">col=</span><span class="st">"red"</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y1 ~ x)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.20954 -0.54068 -0.08579  0.72253  2.00479 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.93449    0.18502   5.051 2.04e-06 ***
+x            3.02844    0.06393  47.371  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.932 on 98 degrees of freedom
+Multiple R-squared:  0.9582,    Adjusted R-squared:  0.9577 
+F-statistic:  2244 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y2 ~ x)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-8.9801 -1.9681  0.0388  2.1394  7.9963 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   1.2278     0.6496    1.89   0.0617 .  
+x             2.7106     0.2245   12.07   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.273 on 98 degrees of freedom
+Multiple R-squared:  0.5981,    Adjusted R-squared:  0.594 
+F-statistic: 145.8 on 1 and 98 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>now to predict models</p>
+<p>#<code>{r} x &lt;- df$povpct y &lt;- df$brth15to17 plt()</code></p>
+<p>Suppose we have a “new” state formed whose ‘povpct’ value is <span class="math inline">\(22\)</span>.</p>
+<p>#<code>{r} plt() abline(v=21, col="green") lines(x, fitted(lm(y~x)), col="red")</code></p>
+<p><strong>Q.</strong> What is the best guess for this prediction going to be? We could consider the graph and our best prediction is going to be the intersection. In <span class="math inline">\(R\)</span>, we can use the <code>predict()</code> function to do this:</p>
+<p>#<code>{r} new_x &lt;- data.frame(x = c(21)) new_y &lt;- predict(model, new_x) new_y</code></p>
+<p>#<code>{r} plt() abline(v=21, col="green") lines(x, fitted(lm(y~x)), col="red") points(new_x, new_y, col="purple")</code></p>
+<p>We can make predictions not just for a single observation, but for a whole collection of observations.</p>
+<p>#q()<code>{r} new_x &lt;- data.frame(x = c(1:21)) new_y &lt;- predict(model, new_x)</code></p>
+<p>This is what the plot looks like:</p>
+<p>#<code>{r} plt() for(a in new_x){abline(v=a, col="green")} lines(x, fitted(lm(y~x)), col="red") points(a, new_y, col="purple")</code></p>
+</section>
 </section>
 
 </main>
