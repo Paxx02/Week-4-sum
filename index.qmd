@@ -15,9 +15,26 @@ format: html
 ::: {.callout-important}
 ## TIL
 
-Include a _very brief_ summary of what you learnt in this class here. 
+Today we learned about 
 
-regression and linear regression
+1. Regression and linear regression
+  * Motivation
+  * 1_2 estimator
+  * Inference
+  * Prediction
+2. Intro to statisical learning 
+3. Multiple regression
+
+
+```{R results = 'hide'}
+#| output: false
+library(ISLR2)
+library(dplyr)
+library(cowplot)
+library(kableExtra)
+library(htmlwidgets)
+library(tidyverse)
+```
 
 looking at scatter plots
 using this data set 
